@@ -117,11 +117,11 @@ $charts = [
        
     } 
     
-    public function ExistsTag($tag_name){
+    public function existsTag($tag_name){
         
         
         return (DB::table('tp')
-                          ->join('tp', 'products.id', '=', 'tp.product_id')
+                          ->join('products', 'products.id', '=', 'tp.product_id')
                           ->join('tags', 'tags.id', '=', 'tp.tag_id')
                           ->where('product_id','=',$this->id)
                           ->where('tags.name','=',$tag_name)

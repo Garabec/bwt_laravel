@@ -120,10 +120,10 @@ class ProductController extends Controller {
          if ($request->has('tag')) { 
           foreach($request->input('tag') as $tag){
               
-           
+           if(!$model->existsTag($tag)){
             $tag_model=Tag::firstOrCreate(['name'=>$tag]); 
             DB::table('tp')->insert(['tag_id' => $tag_model->id, 'product_id' => $model->id]);
-            
+           } 
             
           }
        }

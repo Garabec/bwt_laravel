@@ -50,8 +50,7 @@ class ProductController extends Controller {
            
          if ($v->fails())
                {
-                    dump($v->errors());
-                    die;
+                   
                    return redirect()->back()->withErrors($v->errors()); 
                 }
         
